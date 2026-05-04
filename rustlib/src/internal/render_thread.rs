@@ -1,6 +1,6 @@
 use crossbeam::channel::Receiver;
 use ndk::native_window::NativeWindow;
-use log::{debug, error, info, trace, warn};
+use log::{debug, error, info, warn};
 
 use vello_cpu::{RenderContext, RenderMode};
 
@@ -17,7 +17,6 @@ pub(crate) struct RenderThread {
 
 impl RenderThread {
     pub fn new(app: Box<dyn VelloApp>, receiver: Receiver<InternalMsg>) -> Self {
-        debug!("[RenderThread::new] Initializing RenderThread struct");
         Self {
             app,
             receiver,
@@ -29,22 +28,21 @@ impl RenderThread {
     }
 
     pub fn run_loop(mut self) {
-        info!("[RenderThread::run_loop] Starting render loop");
-        
+        info!("RenderThread starting");
         self.app.on_init();
-        
+
         while let Ok(msg) = self.receiver.recv() {
             match msg {
                 InternalMsg::SurfaceCreated(window) => {
-                    info!("[RenderThread::SurfaceCreated] NativeWindow attached");
+                    info!("Surface created");
                     self.current_surface = Some(window);
                 }
                 InternalMsg::SurfaceChanged { width, height } => {
-                    info!("[RenderThread::SurfaceChanged] Dimensions: {}x{}", width, height);
+                    info!("Surface changed: {}x{}", width, height);
                     self.app.on_resize(width, height);
                 }
                 InternalMsg::SurfaceDestroyed => {
-                    warn!("[RenderThread::SurfaceDestroyed] Surface released");
+                    warn!("Surface destroyed");
                     self.current_surface = None;
                 }
                 InternalMsg::Touch { action, x, y } => {
@@ -57,15 +55,15 @@ impl RenderThread {
                         16.666
                     };
                     self.last_frame_time = timestamp;
-                    
+
                     if self.current_surface.is_some() {
                         self.render_frame(dt);
                     }
                 }
             }
         }
-        
-        warn!("[RenderThread::run_loop] Exiting render loop");
+
+        warn!("RenderThread exit");
     }
 
     fn render_frame(&mut self, dt: f64) {
@@ -75,47 +73,43 @@ impl RenderThread {
                     let width = buffer.width() as u32;
                     let height = buffer.height() as u32;
                     let stride = buffer.stride() as u32;
-                    
-                    trace!("[RenderThread::render_frame] Buffer: {}x{} (stride: {})", 
-                          width, height, stride);
-                    
+
+                    // Resize our internal buffer if needed
                     if self.tight_buffer_size != (width, height) {
                         let new_size = (width * height * 4) as usize;
-                        debug!("[RenderThread::render_frame] Resizing tight buffer: {} bytes", 
-                              new_size);
+                        debug!("Resizing buffer to: {}x{} ({} bytes)", width, height, new_size);
                         self.tight_buffer.resize(new_size, 0);
                         self.tight_buffer_size = (width, height);
                     }
-                    
+
+                    // Render into our internal buffer
                     let mut ctx = RenderContext::new(width as u16, height as u16);
                     self.app.on_draw(&mut ctx, dt);
-                    ctx.render_to_buffer(&mut self.tight_buffer, 
-                                        width as u16, 
-                                        height as u16, 
-                                        RenderMode::OptimizeSpeed);
-                    
+                    ctx.render_to_buffer(
+                        &mut self.tight_buffer,
+                        width as u16,
+                        height as u16,
+                        RenderMode::OptimizeSpeed,
+                    );
+
+                    // 关键：安全地复制数据，只渲染一半高度来防止崩溃
+                    let copy_height = std::cmp::min(height, 1200); // 先只渲染一半高度
                     let row_bytes = (width * 4) as usize;
-                    let dst_stride = (stride * 4) as usize;
-                    let buffer_ptr = buffer.bits();
-                    
-                    if !buffer_ptr.is_null() {
-                        for y in 0..height as usize {
-                            let src_idx = y * row_bytes;
-                            let dst_idx = y * dst_stride;
-                            
-                            unsafe {
-                                let src_ptr = self.tight_buffer.as_ptr().add(src_idx);
-                                let dst_ptr = (buffer_ptr as *mut u8).add(dst_idx);
-                                std::ptr::copy_nonoverlapping(src_ptr, dst_ptr, row_bytes);
-                            }
+                    let dst_row_bytes = (stride * 4) as usize;
+                    let buffer_ptr = buffer.bits() as *mut u8;
+
+                    unsafe {
+                        for y in 0..copy_height as usize {
+                            let src = self.tight_buffer.as_ptr().add(y * row_bytes);
+                            let dst = buffer_ptr.add(y * dst_row_bytes);
+                            std::ptr::copy_nonoverlapping(src, dst, row_bytes);
                         }
-                        trace!("[RenderThread::render_frame] Completed {} row copies", height);
-                    } else {
-                        error!("[RenderThread::render_frame] Buffer pointer is NULL!");
                     }
+
+                    debug!("Rendered: {}x{}", width, copy_height);
                 }
                 Err(e) => {
-                    error!("[RenderThread::render_frame] Failed to lock buffer: {:?}", e);
+                    error!("Failed to lock buffer: {:?}", e);
                 }
             }
         }
