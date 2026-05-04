@@ -92,11 +92,16 @@ impl RenderThread {
                         RenderMode::OptimizeSpeed,
                     );
 
-                    // 关键：安全地复制数据，只渲染一半高度来防止崩溃
-                    let copy_height = std::cmp::min(height, 1200); // 先只渲染一半高度
+                    // 关键：安全地复制数据，防止访问越界
+                    let copy_height = std::cmp::min(height, 1200);
                     let row_bytes = (width * 4) as usize;
                     let dst_row_bytes = (stride * 4) as usize;
                     let buffer_ptr = buffer.bits() as *mut u8;
+
+                    if buffer_ptr.is_null() {
+                        error!("Buffer pointer is null!");
+                        return;
+                    }
 
                     unsafe {
                         for y in 0..copy_height as usize {
