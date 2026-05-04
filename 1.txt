@@ -1,0 +1,335 @@
+---------------------------- PROCESS STARTED (27135) for package com.demo.hellovello ----------------------------
+2026-05-04 22:06:04.372 27135-27178 libc                    com.demo.hellovello                  A  Fatal signal 11 (SIGSEGV), code 2 (SEGV_ACCERR), fault addr 0x76384ec000 in tid 27178 (VelloRenderThre), pid 27135 (demo.hellovello)
+2026-05-04 22:06:04.712 27194-27194 DEBUG                   crash_dump64                         A  Cmdline: com.demo.hellovello
+2026-05-04 22:06:04.712 27194-27194 DEBUG                   crash_dump64                         A  pid: 27135, tid: 27178, name: VelloRenderThre  >>> com.demo.hellovello <<<
+2026-05-04 22:06:04.712 27194-27194 DEBUG                   crash_dump64                         A        #01 pc 000000000004e280  /data/app/~~90hvPELq_23XW2X4KT3NXg==/com.demo.hellovello-fV-vc7nrV7E4wpcEJbyZgA==/base.apk (offset 0x1a64000)
+2026-05-04 22:06:04.712 27194-27194 DEBUG                   crash_dump64                         A        #02 pc 00000000000535b8  /data/app/~~90hvPELq_23XW2X4KT3NXg==/com.demo.hellovello-fV-vc7nrV7E4wpcEJbyZgA==/base.apk (offset 0x1a64000)
+2026-05-04 22:06:04.712 27194-27194 DEBUG                   crash_dump64                         A        #03 pc 0000000000058d5c  /data/app/~~90hvPELq_23XW2X4KT3NXg==/com.demo.hellovello-fV-vc7nrV7E4wpcEJbyZgA==/base.apk (offset 0x1a64000)
+2026-05-04 22:06:04.712 27194-27194 DEBUG                   crash_dump64                         A        #04 pc 00000000000cbf74  /data/app/~~90hvPELq_23XW2X4KT3NXg==/com.demo.hellovello-fV-vc7nrV7E4wpcEJbyZgA==/base.apk (offset 0x1a64000)
+---------------------------- PROCESS ENDED (27135) for package com.demo.hellovello ----------------------------
+---------------------------- PROCESS STARTED (27272) for package com.demo.hellovello ----------------------------
+2026-05-04 22:06:10.373 27272-27272 demo.hellovello         com.demo.hellovello                  I  Using CollectorTypeCC GC.
+2026-05-04 22:06:10.469 27272-27272 nativeloader            com.demo.hellovello                  D  Load libframework-connectivity-tiramisu-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity-t.jar: ok
+2026-05-04 22:06:10.472 27272-27272 demo.hellovello         com.demo.hellovello                  E  BBinder_init Processname  com.demo.hellovello  
+2026-05-04 22:06:10.472 27272-27272 demo.hellovello         com.demo.hellovello                  E  BBinder_init hasGetProcessName  com.demo.hellovello
+2026-05-04 22:06:10.650 27272-27272 nativeloader            com.demo.hellovello                  D  Configuring clns-9 for other apk /data/app/~~90hvPELq_23XW2X4KT3NXg==/com.demo.hellovello-fV-vc7nrV7E4wpcEJbyZgA==/base.apk. target_sdk_version=36, uses_libraries=, library_path=/data/app/~~90hvPELq_23XW2X4KT3NXg==/com.demo.hellovello-fV-vc7nrV7E4wpcEJbyZgA==/lib/arm64:/data/app/~~90hvPELq_23XW2X4KT3NXg==/com.demo.hellovello-fV-vc7nrV7E4wpcEJbyZgA==/base.apk!/lib/arm64-v8a, permitted_path=/data:/mnt/expand:/data/user/0/com.demo.hellovello
+2026-05-04 22:06:10.656 27272-27272 demo.hellovello         com.demo.hellovello                  I  AssetManager2(0xb400007800801af8) locale list changing from [] to [zh-CN]
+2026-05-04 22:06:10.658 27272-27272 VSPA                    com.demo.hellovello                  W  Jni_setThreadSpeed write data pid = 27272, tid = 0, start = 1
+2026-05-04 22:06:10.659 27272-27272 VSPA                    com.demo.hellovello                  W  Jni_setThreadSpeed write data pid = 27272, tid = 0, start = 0
+2026-05-04 22:06:10.703 27272-27272 GraphicsEnvironment     com.demo.hellovello                  V  Currently set values for:
+2026-05-04 22:06:10.703 27272-27272 GraphicsEnvironment     com.demo.hellovello                  V    angle_gl_driver_selection_pkgs=[com.android.angle, com.linecorp.b612.android, com.campmobile.snow, com.google.android.apps.tachyon]
+2026-05-04 22:06:10.703 27272-27272 GraphicsEnvironment     com.demo.hellovello                  V    angle_gl_driver_selection_values=[angle, native, native, native]
+2026-05-04 22:06:10.703 27272-27272 GraphicsEnvironment     com.demo.hellovello                  V  com.demo.hellovello is not listed in per-application setting
+2026-05-04 22:06:10.703 27272-27272 GraphicsEnvironment     com.demo.hellovello                  V  ANGLE allowlist from config: 
+2026-05-04 22:06:10.703 27272-27272 GraphicsEnvironment     com.demo.hellovello                  V  com.demo.hellovello is not listed in ANGLE allowlist or settings, returning default
+2026-05-04 22:06:10.704 27272-27272 GraphicsEnvironment     com.demo.hellovello                  V  Updatable production driver is not supported on the device.
+2026-05-04 22:06:10.745 27272-27310 DisplayManager          com.demo.hellovello                  I  Choreographer implicitly registered for the refresh rate.
+2026-05-04 22:06:10.746 27272-27310 GameManager             com.demo.hellovello                  I  __progname=com.demo.hellovello
+2026-05-04 22:06:10.747 27272-27272 demo.hellovello         com.demo.hellovello                  I  AssetManager2(0xb4000078008001f8) locale list changing from [] to [zh-CN]
+2026-05-04 22:06:10.747 27272-27310 vulkan                  com.demo.hellovello                  D  searching for layers in '/data/app/~~90hvPELq_23XW2X4KT3NXg==/com.demo.hellovello-fV-vc7nrV7E4wpcEJbyZgA==/lib/arm64'
+2026-05-04 22:06:10.747 27272-27310 vulkan                  com.demo.hellovello                  D  searching for layers in '/data/app/~~90hvPELq_23XW2X4KT3NXg==/com.demo.hellovello-fV-vc7nrV7E4wpcEJbyZgA==/base.apk!/lib/arm64-v8a'
+2026-05-04 22:06:10.749 27272-27296 ActivityThread          com.demo.hellovello                  V  updateVmProcessStateForGc sceneId =1000 state=-2038431744
+2026-05-04 22:06:10.749 27272-27296 demo.hellovello         com.demo.hellovello                  I  vart_impl, update 109051904, state=109051904
+2026-05-04 22:06:10.758 27272-27310 AdrenoVK-0              com.demo.hellovello                  I  ===== BEGIN DUMP OF OVERRIDDEN SETTINGS =====
+2026-05-04 22:06:10.758 27272-27310 AdrenoVK-0              com.demo.hellovello                  I  ===== END DUMP OF OVERRIDDEN SETTINGS =====
+2026-05-04 22:06:10.761 27272-27310 qdgralloc               com.demo.hellovello                  D  Fetching IMapper5 from QtiMapper5
+2026-05-04 22:06:10.766 27272-27272 ashmem                  com.demo.hellovello                  E  Pinning is deprecated since Android Q. Please use trim or other methods.
+2026-05-04 22:06:10.769 27272-27310 SnapAlloc               com.demo.hellovello                  I  Graphics lib is available
+2026-05-04 22:06:10.776 27272-27310 Adreno-UNKNOWN          com.demo.hellovello                  I  Using previously loaded IMapper library.
+2026-05-04 22:06:10.779 27272-27310 AdrenoVK-0              com.demo.hellovello                  I  QUALCOMM build          : 3d7006d5b8, I5e537599e5
+                                                                                                    Build Date              : 11/11/25
+                                                                                                    Shader Compiler Version : E031.47.18.42
+                                                                                                    Local Branch            : 
+                                                                                                    Remote Branch           : refs/tags/AU_LINUX_ANDROID_LA.VENDOR.15.4.0.11.00.00.1088.811
+                                                                                                    Remote Branch           : NONE
+                                                                                                    Reconstruct Branch      : NOTHING
+2026-05-04 22:06:10.779 27272-27310 AdrenoVK-0              com.demo.hellovello                  I  Build Config            : S P 18.0.0 AArch64
+2026-05-04 22:06:10.779 27272-27310 AdrenoVK-0              com.demo.hellovello                  I  Driver Path             : /vendor/lib64/hw/vulkan.adreno.so
+2026-05-04 22:06:10.779 27272-27310 AdrenoVK-0              com.demo.hellovello                  I  Driver Version          : 0800.55.1
+2026-05-04 22:06:10.779 27272-27310 AdrenoVK-0              com.demo.hellovello                  I  PFP                     : 0x01200182
+2026-05-04 22:06:10.779 27272-27310 AdrenoVK-0              com.demo.hellovello                  I  ME                      : 0x00000000
+2026-05-04 22:06:10.779 27272-27310 AdrenoVK-0              com.demo.hellovello                  I  Application Name    : android framework
+                                                                                                    Process Name        : com.demo.hellovello
+                                                                                                    Application Version : 0x00000000
+                                                                                                    Engine Name         : android framework
+                                                                                                    Engine Version      : 0x00000000
+                                                                                                    Api Version         : 0x00401000
+2026-05-04 22:06:10.799 27272-27272 VSPA                    com.demo.hellovello                  W  Jni_setThreadSpeed write data pid = 27272, tid = 0, start = 1
+2026-05-04 22:06:10.800 27272-27272 VSPA                    com.demo.hellovello                  W  Jni_setThreadSpeed write data pid = 27272, tid = 0, start = 0
+2026-05-04 22:06:10.806 27272-27272 CompatChangeReporter    com.demo.hellovello                  D  Compat change id reported: 377864165; UID 10392; state: ENABLED
+2026-05-04 22:06:10.809 27272-27272 DesktopModeFlags        com.demo.hellovello                  D  Toggle override initialized to: OVERRIDE_UNSET
+2026-05-04 22:06:10.824 27272-27272 VelloSurfaceView        com.demo.hellovello                  I  [Companion::init] Loading native library: rustlib
+2026-05-04 22:06:10.830 27272-27272 nativeloader            com.demo.hellovello                  D  Load /data/app/~~90hvPELq_23XW2X4KT3NXg==/com.demo.hellovello-fV-vc7nrV7E4wpcEJbyZgA==/base.apk!/lib/arm64-v8a/librustlib.so using class loader ns clns-9 (caller=/data/app/~~90hvPELq_23XW2X4KT3NXg==/com.demo.hellovello-fV-vc7nrV7E4wpcEJbyZgA==/base.apk!classes3.dex): ok
+2026-05-04 22:06:10.831 27272-27272 VelloSurfaceView        com.demo.hellovello                  I  [Companion::init] Native library loaded successfully
+2026-05-04 22:06:10.833 27272-27272 VelloSurfaceView        com.demo.hellovello                  D  [init] Initializing VelloSurfaceView
+2026-05-04 22:06:10.833 27272-27272 VelloSurfaceView        com.demo.hellovello                  D  [init] SurfaceHolder callback added
+2026-05-04 22:06:10.833 27272-27272 VelloSurfaceView        com.demo.hellovello                  D  [init] Calling nativeInit()
+2026-05-04 22:06:10.833 27272-27272 VelloSurfaceView        com.demo.hellovello                  D  [init] nativeInit() completed
+2026-05-04 22:06:10.833 27272-27272 VelloSurfaceView        com.demo.hellovello                  I  [init] VelloSurfaceView initialized successfully
+2026-05-04 22:06:10.834 27272-27316 RustlibExample          com.demo.hellovello                  D  rustlib::interactive_box: [InteractiveBox::on_init] Android logger initialized with Trace level
+2026-05-04 22:06:10.865 27272-27272 demo.hellovello         com.demo.hellovello                  W  type=1400 audit(0.0:938550): avc:  denied  { read } for  name="u:object_r:microsoft_ltw_prop:s0" dev="tmpfs" ino=334 scontext=u:r:untrusted_app:s0:c136,c257,c512,c768 tcontext=u:object_r:microsoft_ltw_prop:s0 tclass=file permissive=0 app=com.demo.hellovello
+2026-05-04 22:06:10.834 27272-27316 RustlibExample          com.demo.hellovello                  D  rustlib::interactive_box: [InteractiveBox::on_init] Panic logger initialized
+2026-05-04 22:06:10.834 27272-27316 RustlibExample          com.demo.hellovello                  I  rustlib::interactive_box: [InteractiveBox::on_init] Application initialization started. Version: 1.0.0-example
+2026-05-04 22:06:10.834 27272-27316 RustlibExample          com.demo.hellovello                  D  rustlib::interactive_box: [InteractiveBox::on_init] Initial box coordinates set to x: 500, y: 500
+2026-05-04 22:06:10.834 27272-27316 RustlibExample          com.demo.hellovello                  I  rustlib::interactive_box: [InteractiveBox::on_init] Application initialization completed successfully
+2026-05-04 22:06:10.866 27272-27272 libc                    com.demo.hellovello                  W  Access denied finding property "persist.vivo.ltw.enabled"
+2026-05-04 22:06:10.883 27272-27272 VSPA                    com.demo.hellovello                  W  Jni_setThreadSpeed write data pid = 27272, tid = 0, start = 1
+2026-05-04 22:06:10.883 27272-27272 VSPA                    com.demo.hellovello                  W  Jni_setThreadSpeed write data pid = 27272, tid = 0, start = 0
+2026-05-04 22:06:10.907 27272-27272 ViewRootImpl            com.demo.hellovello                  D  AppSizeAfterRelayout, size: Point(1080, 2400), rotation: ROTATION_0
+2026-05-04 22:06:10.926 27272-27272 VelloSurfaceView        com.demo.hellovello                  I  [surfaceCreated] Surface created event received
+2026-05-04 22:06:10.927 27272-27272 VelloSurfaceView        com.demo.hellovello                  D  [surfaceCreated] Surface: Surface(name=null mNativeObject=-5476376628793678528)/@0x1d34055
+2026-05-04 22:06:10.927 27272-27272 VelloSurfaceView        com.demo.hellovello                  D  [surfaceCreated] Surface is valid: true
+2026-05-04 22:06:10.927 27272-27272 VelloSurfaceView        com.demo.hellovello                  D  [surfaceCreated] Calling nativeSurfaceCreated()
+2026-05-04 22:06:10.927 27272-27272 VelloSurfaceView        com.demo.hellovello                  D  [surfaceCreated] nativeSurfaceCreated() completed
+2026-05-04 22:06:10.927 27272-27272 VelloSurfaceView        com.demo.hellovello                  D  [surfaceCreated] Registering frame callback with Choreographer
+2026-05-04 22:06:10.927 27272-27272 VelloSurfaceView        com.demo.hellovello                  I  [surfaceCreated] Frame callback registered successfully
+2026-05-04 22:06:10.927 27272-27272 VelloSurfaceView        com.demo.hellovello                  I  [surfaceChanged] Surface changed event received
+2026-05-04 22:06:10.927 27272-27272 VelloSurfaceView        com.demo.hellovello                  D  [surfaceChanged] Format: 4, Width: 1080, Height: 2400
+2026-05-04 22:06:10.927 27272-27272 VelloSurfaceView        com.demo.hellovello                  D  [surfaceChanged] Surface: Surface(name=null mNativeObject=-5476376628793678528)/@0x1d34055
+2026-05-04 22:06:10.927 27272-27272 VelloSurfaceView        com.demo.hellovello                  D  [surfaceChanged] Surface is valid: true
+2026-05-04 22:06:10.927 27272-27272 VelloSurfaceView        com.demo.hellovello                  D  [surfaceChanged] Calling nativeSurfaceChanged(1080, 2400)
+2026-05-04 22:06:10.927 27272-27272 VelloSurfaceView        com.demo.hellovello                  D  [surfaceChanged] nativeSurfaceChanged() completed
+2026-05-04 22:06:10.927 27272-27272 VelloSurfaceView        com.demo.hellovello                  I  [surfaceChanged] Surface change handled successfully
+2026-05-04 22:06:10.929 27272-27272 VSPA                    com.demo.hellovello                  W  Jni_setThreadSpeed write data pid = 27272, tid = 0, start = 1
+2026-05-04 22:06:10.930 27272-27316 RustlibExample          com.demo.hellovello                  I  rustlib::internal::render_thread: [RenderThread::SurfaceCreated] NativeWindow attached
+2026-05-04 22:06:10.930 27272-27316 RustlibExample          com.demo.hellovello                  I  rustlib::internal::render_thread: [RenderThread::SurfaceChanged] Dimensions: 1080x2400
+2026-05-04 22:06:10.930 27272-27316 RustlibExample          com.demo.hellovello                  I  rustlib::interactive_box: [InteractiveBox::on_resize] Surface resize event received
+2026-05-04 22:06:10.930 27272-27316 RustlibExample          com.demo.hellovello                  I  rustlib::interactive_box: [InteractiveBox::on_resize] New surface dimensions: 1080x2400
+2026-05-04 22:06:10.930 27272-27316 RustlibExample          com.demo.hellovello                  D  rustlib::interactive_box: [InteractiveBox::on_resize] Updated screen dimensions - width: 1080, height: 2400
+2026-05-04 22:06:10.930 27272-27316 RustlibExample          com.demo.hellovello                  D  rustlib::interactive_box: [InteractiveBox::on_resize] Box repositioned to screen center: (540, 1200)
+2026-05-04 22:06:10.930 27272-27316 RustlibExample          com.demo.hellovello                  V  rustlib::interactive_box: [InteractiveBox::on_resize] Box position recalibrated to screen center: (540, 1200)
+2026-05-04 22:06:10.930 27272-27316 RustlibExample          com.demo.hellovello                  I  rustlib::interactive_box: [InteractiveBox::on_resize] Surface resize handling completed
+2026-05-04 22:06:10.930 27272-27272 VSPA                    com.demo.hellovello                  W  Jni_setThreadSpeed write data pid = 27272, tid = 0, start = 0
+2026-05-04 22:06:10.936 27272-27310 AdrenoUtils             com.demo.hellovello                  I  <ReadGpuID:366>: Reading chip ID through GSL
+2026-05-04 22:06:10.944 27272-27310 MEMCWrapper             com.demo.hellovello                  E  MEMC_POST_PROCESSING_ENABLE_PROPERTY false.
+2026-05-04 22:06:10.949 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame callback received
+2026-05-04 22:06:10.949 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame time nanos: 158826066725557
+2026-05-04 22:06:10.949 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Surface is valid, calling nativeDoFrame()
+2026-05-04 22:06:10.949 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] nativeDoFrame() completed
+2026-05-04 22:06:10.949 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Posting next frame callback
+2026-05-04 22:06:10.949 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Next frame callback posted successfully
+2026-05-04 22:06:10.952 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame callback received
+2026-05-04 22:06:10.952 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame time nanos: 158826069876859
+2026-05-04 22:06:10.952 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Surface is valid, calling nativeDoFrame()
+2026-05-04 22:06:10.952 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] nativeDoFrame() completed
+2026-05-04 22:06:10.952 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Posting next frame callback
+2026-05-04 22:06:10.952 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Next frame callback posted successfully
+2026-05-04 22:06:10.957 27272-27316 RustlibExample          com.demo.hellovello                  V  rustlib::internal::render_thread: [RenderThread::render_frame] Buffer: 1080x2400 (stride: 1088)
+2026-05-04 22:06:10.957 27272-27316 RustlibExample          com.demo.hellovello                  D  rustlib::internal::render_thread: [RenderThread::render_frame] Resizing tight buffer: 10368000 bytes
+2026-05-04 22:06:10.957 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame callback received
+2026-05-04 22:06:10.957 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame time nanos: 158826070730621
+2026-05-04 22:06:10.957 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Surface is valid, calling nativeDoFrame()
+2026-05-04 22:06:10.957 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] nativeDoFrame() completed
+2026-05-04 22:06:10.957 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Posting next frame callback
+2026-05-04 22:06:10.957 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Next frame callback posted successfully
+2026-05-04 22:06:10.961 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame callback received
+2026-05-04 22:06:10.961 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame time nanos: 158826079028288
+2026-05-04 22:06:10.961 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Surface is valid, calling nativeDoFrame()
+2026-05-04 22:06:10.961 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] nativeDoFrame() completed
+2026-05-04 22:06:10.961 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Posting next frame callback
+2026-05-04 22:06:10.962 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Next frame callback posted successfully
+2026-05-04 22:06:10.971 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame callback received
+2026-05-04 22:06:10.971 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame time nanos: 158826087325333
+2026-05-04 22:06:10.971 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Surface is valid, calling nativeDoFrame()
+2026-05-04 22:06:10.971 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] nativeDoFrame() completed
+2026-05-04 22:06:10.971 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Posting next frame callback
+2026-05-04 22:06:10.971 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Next frame callback posted successfully
+2026-05-04 22:06:10.978 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame callback received
+2026-05-04 22:06:10.978 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame time nanos: 158826095621839
+2026-05-04 22:06:10.978 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Surface is valid, calling nativeDoFrame()
+2026-05-04 22:06:10.978 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] nativeDoFrame() completed
+2026-05-04 22:06:10.978 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Posting next frame callback
+2026-05-04 22:06:10.978 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Next frame callback posted successfully
+2026-05-04 22:06:10.986 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame callback received
+2026-05-04 22:06:10.986 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame time nanos: 158826103918332
+2026-05-04 22:06:10.986 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Surface is valid, calling nativeDoFrame()
+2026-05-04 22:06:10.986 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] nativeDoFrame() completed
+2026-05-04 22:06:10.986 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Posting next frame callback
+2026-05-04 22:06:10.987 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Next frame callback posted successfully
+2026-05-04 22:06:10.988 27272-27316 RustlibExample          com.demo.hellovello                  V  rustlib::interactive_box: [InteractiveBox::on_draw] Frame rendering started
+2026-05-04 22:06:10.988 27272-27316 RustlibExample          com.demo.hellovello                  V  rustlib::interactive_box: [InteractiveBox::on_draw] Delta time: 16.67 ms
+2026-05-04 22:06:10.988 27272-27316 RustlibExample          com.demo.hellovello                  V  rustlib::interactive_box: [InteractiveBox::on_draw] Current box position: (540.00, 1200.00)
+2026-05-04 22:06:10.988 27272-27316 RustlibExample          com.demo.hellovello                  V  rustlib::interactive_box: [InteractiveBox::on_draw] Screen dimensions: 1080.00x2400.00
+2026-05-04 22:06:10.988 27272-27316 RustlibExample          com.demo.hellovello                  D  rustlib::interactive_box: [InteractiveBox::on_draw] Drawing deep gray background
+2026-05-04 22:06:10.988 27272-27316 RustlibExample          com.demo.hellovello                  D  rustlib::interactive_box: [InteractiveBox::on_draw] Background color: RGB(30, 30, 30)
+2026-05-04 22:06:10.988 27272-27316 RustlibExample          com.demo.hellovello                  V  rustlib::interactive_box: [InteractiveBox::on_draw] Paint color set for background
+2026-05-04 22:06:10.988 27272-27316 RustlibExample          com.demo.hellovello                  D  rustlib::interactive_box: [InteractiveBox::on_draw] Background rectangle: Rect { x0: 0.0, y0: 0.0, x1: 1080.0, y1: 2400.0 }
+2026-05-04 22:06:10.989 27272-27272 ImeFocusController      com.demo.hellovello                  V  onWindowFocus: com.android.internal.policy.DecorView{2b88574 V.E...... R....... 0,0-1080,2400}[MainActivity] softInputMode=STATE_UNSPECIFIED|ADJUST_PAN
+2026-05-04 22:06:10.989 27272-27316 RustlibExample          com.demo.hellovello                  V  rustlib::interactive_box: [InteractiveBox::on_draw] Background rectangle filled successfully
+2026-05-04 22:06:10.989 27272-27316 RustlibExample          com.demo.hellovello                  D  rustlib::interactive_box: [InteractiveBox::on_draw] Calculating box coordinates
+2026-05-04 22:06:10.989 27272-27316 RustlibExample          com.demo.hellovello                  D  rustlib::interactive_box: [InteractiveBox::on_draw] Box size: 300, half size: 150
+2026-05-04 22:06:10.989 27272-27316 RustlibExample          com.demo.hellovello                  D  rustlib::interactive_box: [InteractiveBox::on_draw] Target box rectangle: Rect { x0: 390.0, y0: 1050.0, x1: 690.0, y1: 1350.0 }
+2026-05-04 22:06:10.989 27272-27316 RustlibExample          com.demo.hellovello                  D  rustlib::interactive_box: [InteractiveBox::on_draw] Drawing bright green box
+2026-05-04 22:06:10.989 27272-27316 RustlibExample          com.demo.hellovello                  D  rustlib::interactive_box: [InteractiveBox::on_draw] Box color: RGB(0, 255, 128)
+2026-05-04 22:06:10.989 27272-27316 RustlibExample          com.demo.hellovello                  V  rustlib::interactive_box: [InteractiveBox::on_draw] Paint color set for box
+2026-05-04 22:06:10.990 27272-27316 RustlibExample          com.demo.hellovello                  V  rustlib::interactive_box: [InteractiveBox::on_draw] Box rectangle filled successfully
+2026-05-04 22:06:10.990 27272-27316 RustlibExample          com.demo.hellovello                  V  rustlib::interactive_box: [InteractiveBox::on_draw] Frame rendering completed successfully
+2026-05-04 22:06:10.994 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame callback received
+2026-05-04 22:06:10.995 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame time nanos: 158826112214547
+2026-05-04 22:06:10.995 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Surface is valid, calling nativeDoFrame()
+2026-05-04 22:06:10.995 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] nativeDoFrame() completed
+2026-05-04 22:06:10.995 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Posting next frame callback
+2026-05-04 22:06:10.995 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Next frame callback posted successfully
+2026-05-04 22:06:10.999 27272-27316 libc                    com.demo.hellovello                  I  debuggerd signal invoked signal:11
+2026-05-04 22:06:10.999 27272-27316 libc                    com.demo.hellovello                  I  debuggerd requestDump:0 NO_NEW_PRIVS:0
+2026-05-04 22:06:10.999 27272-27316 libc                    com.demo.hellovello                  A  Fatal signal 11 (SIGSEGV), code 2 (SEGV_ACCERR), fault addr 0x7637813000 in tid 27316 (VelloRenderThre), pid 27272 (demo.hellovello)
+2026-05-04 22:06:10.999 27272-27316 libc                    com.demo.hellovello                  I  clone child process pid:27330
+2026-05-04 22:06:11.001 27272-27316 libc                    com.demo.hellovello                  I  debuggerd pseudothread crash_process: 27316
+2026-05-04 22:06:11.003 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame callback received
+2026-05-04 22:06:11.003 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame time nanos: 158826120510061
+2026-05-04 22:06:11.003 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Surface is valid, calling nativeDoFrame()
+2026-05-04 22:06:11.003 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] nativeDoFrame() completed
+2026-05-04 22:06:11.003 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Posting next frame callback
+2026-05-04 22:06:11.003 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Next frame callback posted successfully
+2026-05-04 22:06:11.020 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame callback received
+2026-05-04 22:06:11.020 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame time nanos: 158826137099099
+2026-05-04 22:06:11.020 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Surface is valid, calling nativeDoFrame()
+2026-05-04 22:06:11.020 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] nativeDoFrame() completed
+2026-05-04 22:06:11.020 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Posting next frame callback
+2026-05-04 22:06:11.021 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Next frame callback posted successfully
+2026-05-04 22:06:11.027 27272-27272 ImeTracker              com.demo.hellovello                  I  com.demo.hellovello:c36c5fb4: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+2026-05-04 22:06:11.028 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame callback received
+2026-05-04 22:06:11.028 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame time nanos: 158826145393618
+2026-05-04 22:06:11.028 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Surface is valid, calling nativeDoFrame()
+2026-05-04 22:06:11.028 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] nativeDoFrame() completed
+2026-05-04 22:06:11.028 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Posting next frame callback
+2026-05-04 22:06:11.028 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Next frame callback posted successfully
+2026-05-04 22:06:11.036 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame callback received
+2026-05-04 22:06:11.036 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame time nanos: 158826153685262
+2026-05-04 22:06:11.036 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Surface is valid, calling nativeDoFrame()
+2026-05-04 22:06:11.036 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] nativeDoFrame() completed
+2026-05-04 22:06:11.036 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Posting next frame callback
+2026-05-04 22:06:11.036 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Next frame callback posted successfully
+2026-05-04 22:06:11.044 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame callback received
+2026-05-04 22:06:11.044 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame time nanos: 158826161976047
+2026-05-04 22:06:11.044 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Surface is valid, calling nativeDoFrame()
+2026-05-04 22:06:11.044 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] nativeDoFrame() completed
+2026-05-04 22:06:11.044 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Posting next frame callback
+2026-05-04 22:06:11.044 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Next frame callback posted successfully
+2026-05-04 22:06:11.096 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame callback received
+2026-05-04 22:06:11.096 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame time nanos: 158826211736007
+2026-05-04 22:06:11.096 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Surface is valid, calling nativeDoFrame()
+2026-05-04 22:06:11.096 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] nativeDoFrame() completed
+2026-05-04 22:06:11.096 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Posting next frame callback
+2026-05-04 22:06:11.096 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Next frame callback posted successfully
+2026-05-04 22:06:11.102 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame callback received
+2026-05-04 22:06:11.102 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame time nanos: 158826219805140
+2026-05-04 22:06:11.102 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Surface is valid, calling nativeDoFrame()
+2026-05-04 22:06:11.102 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] nativeDoFrame() completed
+2026-05-04 22:06:11.102 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Posting next frame callback
+2026-05-04 22:06:11.102 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Next frame callback posted successfully
+2026-05-04 22:06:11.111 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame callback received
+2026-05-04 22:06:11.111 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame time nanos: 158826228544931
+2026-05-04 22:06:11.111 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Surface is valid, calling nativeDoFrame()
+2026-05-04 22:06:11.111 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] nativeDoFrame() completed
+2026-05-04 22:06:11.111 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Posting next frame callback
+2026-05-04 22:06:11.111 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Next frame callback posted successfully
+2026-05-04 22:06:11.136 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame callback received
+2026-05-04 22:06:11.136 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame time nanos: 158826253385666
+2026-05-04 22:06:11.136 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Surface is valid, calling nativeDoFrame()
+2026-05-04 22:06:11.136 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] nativeDoFrame() completed
+2026-05-04 22:06:11.136 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Posting next frame callback
+2026-05-04 22:06:11.136 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Next frame callback posted successfully
+2026-05-04 22:06:11.161 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame callback received
+2026-05-04 22:06:11.161 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame time nanos: 158826278346332
+2026-05-04 22:06:11.161 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Surface is valid, calling nativeDoFrame()
+2026-05-04 22:06:11.161 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] nativeDoFrame() completed
+2026-05-04 22:06:11.161 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Posting next frame callback
+2026-05-04 22:06:11.161 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Next frame callback posted successfully
+2026-05-04 22:06:11.177 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame callback received
+2026-05-04 22:06:11.177 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame time nanos: 158826294935332
+2026-05-04 22:06:11.177 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Surface is valid, calling nativeDoFrame()
+2026-05-04 22:06:11.177 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] nativeDoFrame() completed
+2026-05-04 22:06:11.177 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Posting next frame callback
+2026-05-04 22:06:11.177 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Next frame callback posted successfully
+2026-05-04 22:06:11.194 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame callback received
+2026-05-04 22:06:11.194 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame time nanos: 158826311601998
+2026-05-04 22:06:11.194 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Surface is valid, calling nativeDoFrame()
+2026-05-04 22:06:11.194 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] nativeDoFrame() completed
+2026-05-04 22:06:11.194 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Posting next frame callback
+2026-05-04 22:06:11.194 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Next frame callback posted successfully
+2026-05-04 22:06:11.211 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame callback received
+2026-05-04 22:06:11.211 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame time nanos: 158826328268664
+2026-05-04 22:06:11.211 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Surface is valid, calling nativeDoFrame()
+2026-05-04 22:06:11.211 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] nativeDoFrame() completed
+2026-05-04 22:06:11.211 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Posting next frame callback
+2026-05-04 22:06:11.211 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Next frame callback posted successfully
+2026-05-04 22:06:11.227 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame callback received
+2026-05-04 22:06:11.227 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame time nanos: 158826344935330
+2026-05-04 22:06:11.227 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Surface is valid, calling nativeDoFrame()
+2026-05-04 22:06:11.227 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] nativeDoFrame() completed
+2026-05-04 22:06:11.227 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Posting next frame callback
+2026-05-04 22:06:11.227 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Next frame callback posted successfully
+2026-05-04 22:06:11.243 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame callback received
+2026-05-04 22:06:11.243 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame time nanos: 158826360968282
+2026-05-04 22:06:11.243 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Surface is valid, calling nativeDoFrame()
+2026-05-04 22:06:11.243 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] nativeDoFrame() completed
+2026-05-04 22:06:11.243 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Posting next frame callback
+2026-05-04 22:06:11.243 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Next frame callback posted successfully
+2026-05-04 22:06:11.260 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame callback received
+2026-05-04 22:06:11.260 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame time nanos: 158826377555424
+2026-05-04 22:06:11.260 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Surface is valid, calling nativeDoFrame()
+2026-05-04 22:06:11.260 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] nativeDoFrame() completed
+2026-05-04 22:06:11.260 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Posting next frame callback
+2026-05-04 22:06:11.260 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Next frame callback posted successfully
+2026-05-04 22:06:11.276 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame callback received
+2026-05-04 22:06:11.277 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame time nanos: 158826394142566
+2026-05-04 22:06:11.277 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Surface is valid, calling nativeDoFrame()
+2026-05-04 22:06:11.277 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] nativeDoFrame() completed
+2026-05-04 22:06:11.277 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Posting next frame callback
+2026-05-04 22:06:11.277 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Next frame callback posted successfully
+2026-05-04 22:06:11.293 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame callback received
+2026-05-04 22:06:11.293 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame time nanos: 158826410729708
+2026-05-04 22:06:11.293 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Surface is valid, calling nativeDoFrame()
+2026-05-04 22:06:11.293 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] nativeDoFrame() completed
+2026-05-04 22:06:11.293 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Posting next frame callback
+2026-05-04 22:06:11.293 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Next frame callback posted successfully
+2026-05-04 22:06:11.310 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame callback received
+2026-05-04 22:06:11.310 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame time nanos: 158826427316560
+2026-05-04 22:06:11.310 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Surface is valid, calling nativeDoFrame()
+2026-05-04 22:06:11.310 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] nativeDoFrame() completed
+2026-05-04 22:06:11.310 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Posting next frame callback
+2026-05-04 22:06:11.310 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Next frame callback posted successfully
+2026-05-04 22:06:11.326 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame callback received
+2026-05-04 22:06:11.326 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame time nanos: 158826443903674
+2026-05-04 22:06:11.326 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Surface is valid, calling nativeDoFrame()
+2026-05-04 22:06:11.326 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] nativeDoFrame() completed
+2026-05-04 22:06:11.326 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Posting next frame callback
+2026-05-04 22:06:11.326 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Next frame callback posted successfully
+2026-05-04 22:06:11.343 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame callback received
+2026-05-04 22:06:11.343 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame time nanos: 158826460490788
+2026-05-04 22:06:11.343 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Surface is valid, calling nativeDoFrame()
+2026-05-04 22:06:11.343 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] nativeDoFrame() completed
+2026-05-04 22:06:11.343 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Posting next frame callback
+2026-05-04 22:06:11.343 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Next frame callback posted successfully
+2026-05-04 22:06:11.359 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame callback received
+2026-05-04 22:06:11.359 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame time nanos: 158826477077902
+2026-05-04 22:06:11.359 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Surface is valid, calling nativeDoFrame()
+2026-05-04 22:06:11.359 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] nativeDoFrame() completed
+2026-05-04 22:06:11.359 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Posting next frame callback
+2026-05-04 22:06:11.359 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Next frame callback posted successfully
+2026-05-04 22:06:11.376 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame callback received
+2026-05-04 22:06:11.376 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame time nanos: 158826493665016
+2026-05-04 22:06:11.376 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Surface is valid, calling nativeDoFrame()
+2026-05-04 22:06:11.376 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] nativeDoFrame() completed
+2026-05-04 22:06:11.376 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Posting next frame callback
+2026-05-04 22:06:11.376 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Next frame callback posted successfully
+2026-05-04 22:06:11.388 27334-27334 DEBUG                   crash_dump64                         A  Cmdline: com.demo.hellovello
+2026-05-04 22:06:11.388 27334-27334 DEBUG                   crash_dump64                         A  pid: 27272, tid: 27316, name: VelloRenderThre  >>> com.demo.hellovello <<<
+2026-05-04 22:06:11.388 27334-27334 DEBUG                   crash_dump64                         A        #01 pc 000000000004e280  /data/app/~~90hvPELq_23XW2X4KT3NXg==/com.demo.hellovello-fV-vc7nrV7E4wpcEJbyZgA==/base.apk (offset 0x1a64000)
+2026-05-04 22:06:11.388 27334-27334 DEBUG                   crash_dump64                         A        #02 pc 00000000000535b8  /data/app/~~90hvPELq_23XW2X4KT3NXg==/com.demo.hellovello-fV-vc7nrV7E4wpcEJbyZgA==/base.apk (offset 0x1a64000)
+2026-05-04 22:06:11.388 27334-27334 DEBUG                   crash_dump64                         A        #03 pc 0000000000058d5c  /data/app/~~90hvPELq_23XW2X4KT3NXg==/com.demo.hellovello-fV-vc7nrV7E4wpcEJbyZgA==/base.apk (offset 0x1a64000)
+2026-05-04 22:06:11.389 27334-27334 DEBUG                   crash_dump64                         A        #04 pc 00000000000cbf74  /data/app/~~90hvPELq_23XW2X4KT3NXg==/com.demo.hellovello-fV-vc7nrV7E4wpcEJbyZgA==/base.apk (offset 0x1a64000)
+2026-05-04 22:06:11.392 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame callback received
+2026-05-04 22:06:11.393 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame time nanos: 158826510252130
+2026-05-04 22:06:11.393 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Surface is valid, calling nativeDoFrame()
+2026-05-04 22:06:11.393 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] nativeDoFrame() completed
+2026-05-04 22:06:11.393 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Posting next frame callback
+2026-05-04 22:06:11.393 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Next frame callback posted successfully
+2026-05-04 22:06:11.409 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame callback received
+2026-05-04 22:06:11.409 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Frame time nanos: 158826526839244
+2026-05-04 22:06:11.409 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Surface is valid, calling nativeDoFrame()
+2026-05-04 22:06:11.409 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] nativeDoFrame() completed
+2026-05-04 22:06:11.409 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Posting next frame callback
+2026-05-04 22:06:11.409 27272-27272 VelloSurfaceView        com.demo.hellovello                  V  [doFrame] Next frame callback posted successfully
+---------------------------- PROCESS ENDED (27272) for package com.demo.hellovello ----------------------------

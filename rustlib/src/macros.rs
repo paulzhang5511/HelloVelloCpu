@@ -8,7 +8,7 @@ macro_rules! rustlib_main {
             _reserved: *mut ::std::ffi::c_void,
         ) -> ::jni::sys::jint {
             let mut env = vm.get_env().expect("无法获取 JNIEnv");
-            ::rustlib::internal::register_natives::<$app_type>(&mut env, $java_class);
+            crate::internal::register_natives::<$app_type>(&mut env, $java_class);
             ::jni::JNIVersion::V6.into()
         }
     };
