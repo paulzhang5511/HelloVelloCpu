@@ -16,4 +16,5 @@ pub mod macros;
 #[cfg(target_os = "android")]
 pub mod internal;
 
+#[cfg(target_os = "android")]
 mod interactive_box;
