@@ -1,6 +1,6 @@
 use crossbeam::channel::Receiver;
-use ndk::native_window::NativeWindow;
 use log::{debug, error, info, warn};
+use ndk::native_window::NativeWindow;
 
 use vello_cpu::{RenderContext, RenderMode};
 
@@ -74,28 +74,66 @@ impl RenderThread {
                     let height = buffer.height() as u32;
                     let stride = buffer.stride() as u32;
 
+                    if width == 0 || height == 0 {
+                        warn!("Skipping render for empty buffer: {}x{}", width, height);
+                        return;
+                    }
+
+                    if width > u16::MAX as u32 || height > u16::MAX as u32 {
+                        error!(
+                            "Buffer dimensions exceed vello_cpu u16 limits: {}x{}",
+                            width, height
+                        );
+                        return;
+                    }
+
+                    if stride < width {
+                        error!(
+                            "Native buffer stride {} is smaller than width {}",
+                            stride, width
+                        );
+                        return;
+                    }
+
+                    let Some(row_bytes) = (width as usize).checked_mul(4) else {
+                        error!("Row byte count overflow for width {}", width);
+                        return;
+                    };
+                    let Some(dst_row_bytes) = (stride as usize).checked_mul(4) else {
+                        error!("Destination row byte count overflow for stride {}", stride);
+                        return;
+                    };
+                    let Some(new_size) = row_bytes.checked_mul(height as usize) else {
+                        error!(
+                            "Render buffer size overflow for dimensions {}x{}",
+                            width, height
+                        );
+                        return;
+                    };
+
                     // Resize our internal buffer if needed
                     if self.tight_buffer_size != (width, height) {
-                        let new_size = (width * height * 4) as usize;
-                        debug!("Resizing buffer to: {}x{} ({} bytes)", width, height, new_size);
+                        debug!(
+                            "Resizing buffer to: {}x{} ({} bytes)",
+                            width, height, new_size
+                        );
                         self.tight_buffer.resize(new_size, 0);
                         self.tight_buffer_size = (width, height);
                     }
 
                     // Render into our internal buffer
-                    let mut ctx = RenderContext::new(width as u16, height as u16);
+                    let render_width = width as u16;
+                    let render_height = height as u16;
+                    let mut ctx = RenderContext::new(render_width, render_height);
                     self.app.on_draw(&mut ctx, dt);
                     ctx.render_to_buffer(
                         &mut self.tight_buffer,
-                        width as u16,
-                        height as u16,
+                        render_width,
+                        render_height,
                         RenderMode::OptimizeSpeed,
                     );
 
-                    // 关键：安全地复制数据，防止访问越界
-                    let copy_height = std::cmp::min(height, 1200);
-                    let row_bytes = (width * 4) as usize;
-                    let dst_row_bytes = (stride * 4) as usize;
+                    // 关键：逐行复制完整可见高度，并显式校验 stride/尺寸以防止访问越界。
                     let buffer_ptr = buffer.bits() as *mut u8;
 
                     if buffer_ptr.is_null() {
@@ -104,14 +142,14 @@ impl RenderThread {
                     }
 
                     unsafe {
-                        for y in 0..copy_height as usize {
+                        for y in 0..height as usize {
                             let src = self.tight_buffer.as_ptr().add(y * row_bytes);
                             let dst = buffer_ptr.add(y * dst_row_bytes);
                             std::ptr::copy_nonoverlapping(src, dst, row_bytes);
                         }
                     }
 
-                    debug!("Rendered: {}x{}", width, copy_height);
+                    debug!("Rendered: {}x{}", width, height);
                 }
                 Err(e) => {
                     error!("Failed to lock buffer: {:?}", e);
