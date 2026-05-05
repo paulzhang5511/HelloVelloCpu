@@ -1,6 +1,7 @@
 package com.example.demo
 
 import android.content.Context
+import android.graphics.PixelFormat
 import android.util.AttributeSet
 import android.util.Log
 import android.view.Choreographer
@@ -45,6 +46,8 @@ class VelloSurfaceView @JvmOverloads constructor(
 
     init {
         Log.d(TAG, "[init] Initializing VelloSurfaceView")
+        holder.setFormat(PixelFormat.RGBA_8888)
+        Log.d(TAG, "[init] SurfaceHolder format set to RGBA_8888")
         holder.addCallback(this)
         Log.d(TAG, "[init] SurfaceHolder callback added")
         

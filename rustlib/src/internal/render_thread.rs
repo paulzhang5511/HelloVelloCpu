@@ -1,6 +1,6 @@
 use crossbeam::channel::Receiver;
-use ndk::native_window::NativeWindow;
 use log::{debug, error, info, warn};
+use ndk::native_window::NativeWindow;
 
 use vello_cpu::{RenderContext, RenderMode};
 
@@ -74,44 +74,118 @@ impl RenderThread {
                     let height = buffer.height() as u32;
                     let stride = buffer.stride() as u32;
 
+                    if width == 0 || height == 0 {
+                        warn!("Skipping render for empty buffer: {}x{}", width, height);
+                        return;
+                    }
+
+                    if width > u16::MAX as u32 || height > u16::MAX as u32 {
+                        error!(
+                            "Buffer dimensions exceed vello_cpu u16 limits: {}x{}",
+                            width, height
+                        );
+                        return;
+                    }
+
+                    if stride < width {
+                        error!(
+                            "Native buffer stride {} is smaller than width {}",
+                            stride, width
+                        );
+                        return;
+                    }
+
+                    let Some(row_bytes) = (width as usize).checked_mul(4) else {
+                        error!("Row byte count overflow for width {}", width);
+                        return;
+                    };
+                    let Some(new_size) = row_bytes.checked_mul(height as usize) else {
+                        error!(
+                            "Render buffer size overflow for dimensions {}x{}",
+                            width, height
+                        );
+                        return;
+                    };
+
                     // Resize our internal buffer if needed
                     if self.tight_buffer_size != (width, height) {
-                        let new_size = (width * height * 4) as usize;
-                        debug!("Resizing buffer to: {}x{} ({} bytes)", width, height, new_size);
+                        debug!(
+                            "Resizing buffer to: {}x{} ({} bytes)",
+                            width, height, new_size
+                        );
                         self.tight_buffer.resize(new_size, 0);
                         self.tight_buffer_size = (width, height);
                     }
 
                     // Render into our internal buffer
-                    let mut ctx = RenderContext::new(width as u16, height as u16);
+                    let render_width = width as u16;
+                    let render_height = height as u16;
+                    let mut ctx = RenderContext::new(render_width, render_height);
                     self.app.on_draw(&mut ctx, dt);
                     ctx.render_to_buffer(
                         &mut self.tight_buffer,
-                        width as u16,
-                        height as u16,
+                        render_width,
+                        render_height,
                         RenderMode::OptimizeSpeed,
                     );
 
-                    // 关键：安全地复制数据，防止访问越界
-                    let copy_height = std::cmp::min(height, 1200);
-                    let row_bytes = (width * 4) as usize;
-                    let dst_row_bytes = (stride * 4) as usize;
-                    let buffer_ptr = buffer.bits() as *mut u8;
+                    // 关键：通过 NDK 提供的行切片访问目标缓冲区，避免用 bits() 手工推导
+                    // 目标内存长度；同时拒绝非 4 字节像素格式，避免 RGB565 等格式越界写入。
+                    let format = buffer.format();
+                    let Some(bytes_per_pixel) = format.bytes_per_pixel() else {
+                        error!("Unsupported NativeWindow buffer format: {:?}", format);
+                        return;
+                    };
 
-                    if buffer_ptr.is_null() {
-                        error!("Buffer pointer is null!");
+                    if bytes_per_pixel != 4 {
+                        error!(
+                            "Unsupported NativeWindow buffer format {:?}: expected 4 bytes per pixel, got {}",
+                            format, bytes_per_pixel
+                        );
                         return;
                     }
 
-                    unsafe {
-                        for y in 0..copy_height as usize {
-                            let src = self.tight_buffer.as_ptr().add(y * row_bytes);
-                            let dst = buffer_ptr.add(y * dst_row_bytes);
-                            std::ptr::copy_nonoverlapping(src, dst, row_bytes);
+                    let Some(lines) = buffer.lines() else {
+                        error!(
+                            "NativeWindow buffer format {:?} does not expose byte lines",
+                            format
+                        );
+                        return;
+                    };
+
+                    for (y, dst_line) in lines.enumerate() {
+                        let src_start = y * row_bytes;
+                        let src_end = src_start + row_bytes;
+
+                        if src_end > self.tight_buffer.len() {
+                            error!(
+                                "Source buffer too small while copying row {}: need {}, len {}",
+                                y,
+                                src_end,
+                                self.tight_buffer.len()
+                            );
+                            return;
+                        }
+
+                        if dst_line.len() != row_bytes {
+                            error!(
+                                "Unexpected NativeWindow line size at row {}: expected {}, got {}",
+                                y,
+                                row_bytes,
+                                dst_line.len()
+                            );
+                            return;
+                        }
+
+                        for (dst, src) in dst_line
+                            .iter_mut()
+                            .zip(&self.tight_buffer[src_start..src_end])
+                        {
+                            dst.write(*src);
                         }
                     }
 
-                    debug!("Rendered: {}x{}", width, copy_height);
+                    debug!("Rendered: {}x{}", width, height);
                 }
                 Err(e) => {
                     error!("Failed to lock buffer: {:?}", e);

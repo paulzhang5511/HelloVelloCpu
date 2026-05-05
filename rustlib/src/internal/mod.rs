@@ -1,13 +1,15 @@
 pub mod msgs;
 pub mod render_thread;
 
+use crossbeam::channel::{Sender, unbounded};
 use jni::JNIEnv;
-use jni::objects::{JClass, JObject};
 use jni::NativeMethod;
+use jni::objects::{JClass, JObject};
+use log::warn;
+use ndk::hardware_buffer_format::HardwareBufferFormat;
 use ndk::native_window::NativeWindow;
 use std::ffi::c_void;
 use std::sync::OnceLock;
-use crossbeam::channel::{unbounded, Sender};
 use std::thread;
 
 use crate::VelloApp;
@@ -52,21 +54,22 @@ pub fn register_natives<T: VelloApp + Default + 'static>(env: &mut JNIEnv, class
         },
     ];
 
-    env.register_native_methods(class, &methods).expect("JNI 动态注册失败");
+    env.register_native_methods(class, &methods)
+        .expect("JNI 动态注册失败");
 }
 
 extern "system" fn native_init<T: VelloApp + Default + 'static>(_env: JNIEnv, _class: JClass) {
     RENDER_TX.get_or_init(|| {
         let (tx, rx) = unbounded();
         let app = Box::new(T::default());
-        
+
         thread::Builder::new()
             .name("VelloRenderThread".into())
             .spawn(move || {
                 RenderThread::new(app, rx).run_loop();
             })
             .expect("无法启动渲染线程");
-            
+
         tx
     });
 }
@@ -79,28 +82,58 @@ extern "system" fn native_surface_created(env: JNIEnv, _class: JClass, surface: 
             NativeWindow::from_surface(env.get_native_interface(), surface.as_raw())
                 .expect("转换 NativeWindow 失败")
         };
+
+        // vello_cpu renders RGBA8888 bytes. Force a 4-byte window format before the
+        // render thread locks the buffer so Rust never writes 4 bytes per pixel into
+        // a smaller RGB565 surface. Width/height 0 keeps the platform surface size.
+        if let Err(e) =
+            window.set_buffers_geometry(0, 0, Some(HardwareBufferFormat::R8G8B8A8_UNORM))
+        {
+            warn!("Failed to request RGBA8888 NativeWindow format: {:?}", e);
+        }
+
         let _ = tx.send(InternalMsg::SurfaceCreated(window));
     }
 }
 
 extern "system" fn native_surface_changed(
-    _env: JNIEnv, _class: JClass, width: jni::sys::jint, height: jni::sys::jint,
+    _env: JNIEnv,
+    _class: JClass,
+    width: jni::sys::jint,
+    height: jni::sys::jint,
 ) {
+    if width <= 0 || height <= 0 {
+        return;
+    }
+
     if let Some(tx) = RENDER_TX.get() {
-        let _ = tx.send(InternalMsg::SurfaceChanged { width: width as u32, height: height as u32 });
+        let _ = tx.send(InternalMsg::SurfaceChanged {
+            width: width as u32,
+            height: height as u32,
+        });
     }
 }
 
 extern "system" fn native_surface_destroyed(_env: JNIEnv, _class: JClass) {
-    if let Some(tx) = RENDER_TX.get() { let _ = tx.send(InternalMsg::SurfaceDestroyed); }
+    if let Some(tx) = RENDER_TX.get() {
+        let _ = tx.send(InternalMsg::SurfaceDestroyed);
+    }
 }
 
 extern "system" fn native_do_frame(_env: JNIEnv, _class: JClass, frame_time: jni::sys::jlong) {
-    if let Some(tx) = RENDER_TX.get() { let _ = tx.send(InternalMsg::DoFrame(frame_time)); }
+    if let Some(tx) = RENDER_TX.get() {
+        let _ = tx.send(InternalMsg::DoFrame(frame_time));
+    }
 }
 
 extern "system" fn native_touch_event(
-    _env: JNIEnv, _class: JClass, action: jni::sys::jint, x: jni::sys::jfloat, y: jni::sys::jfloat,
+    _env: JNIEnv,
+    _class: JClass,
+    action: jni::sys::jint,
+    x: jni::sys::jfloat,
+    y: jni::sys::jfloat,
 ) {
-    if let Some(tx) = RENDER_TX.get() { let _ = tx.send(InternalMsg::Touch { action, x, y }); }
+    if let Some(tx) = RENDER_TX.get() {
+        let _ = tx.send(InternalMsg::Touch { action, x, y });
+    }
 }
